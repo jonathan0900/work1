@@ -33,24 +33,40 @@ int main() {
 ```
 非遞迴版本:
 ```cpp
+#include <iostream>
 #include <stack>
-int ackermann_iterative(int m, int n) {
+using namespace std;
+
+int P1(int a, int b) {
     stack<int> stk;
-    stk.push(m);
+
+    stk.push(a);
     while (!stk.empty()) {
-        m = stk.top(); stk.pop();
-        if (m == 0) {
-            n += 1;
-        } else if (n == 0) {
-            stk.push(m - 1);
-            n = 1;
+        a = stk.top();
+        stk.pop();
+
+        if (a == 0) {
+            b = b + 1;
+        } else if (b == 0) {
+            stk.push(a - 1);
+            b = 1;
         } else {
-            stk.push(m - 1);
-            stk.push(m);
-            n = n - 1;
+            stk.push(a - 1);
+            stk.push(a);
+            b = b - 1;
         }
     }
-    return n;
+
+    return b;
+}
+
+int main() {
+    int a , b ;
+    cin>>a>>b;
+    int result = P1(a, b);
+    cout << "P2(" << a << "," << b << ") = " << result << endl;
+
+    return 0;
 }
 ```
 Problem 2
