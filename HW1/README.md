@@ -4,6 +4,8 @@
 ## 解題說明
 **Problem 1:**
 Ackermann 函數是一個著名的遞迴例子，它不屬於原始遞迴範疇，其特點是增長速度非常快，因此適合用來測試遞迴與堆疊的概念。
+<img width="541" height="106" alt="image" src="https://github.com/user-attachments/assets/2ada9e0d-548f-4be6-a85c-80159a953a19" />
+
 
 ## 解題策略
 遞迴思維建立
@@ -19,15 +21,15 @@ Problem 2:
 #include <iostream>
 using namespace std;
 
-int ackermann(int m, int n) {
-    if (m == 0) return n + 1;
-    else if (n == 0) return ackermann(m - 1, 1);
-    else return ackermann(m - 1, ackermann(m, n - 1));
+int ackermann(int a, int b) {
+    if (a == 0) return b + 1;
+    else if (b == 0) return ackermann(a - 1, 1);
+    else return ackermann(a - 1, ackermann(a, b - 1));
 }
 
 int main() {
-    int m = 0, n = 1;
-    cout << "A(" << m << "," << n << ") = " << ackermann(m, n) << endl;
+    int a = 0, b = 1;
+    cout << "A(" << a << "," << b << ") = " << ackermann(a, b) << endl;
     return 0;
 }
 ```
@@ -103,11 +105,11 @@ Space complexity:
 ## 測試與驗證
 | 測試案例       | 參數(a,b)     | 預期輸出       | 實際輸出     |
 | ------------- | ------------- | ------------- | ------------- |
-| 測試1         | Content Cell  | Content Cell  | Content Cell  |
-| 測試2         | Content Cell  | Content Cell  | Content Cell  |
-| 測試3         | Content Cell  |
-| 測試4         | Content Cell  |
-| 測試5         | Content Cell  |
+| 測試1         | (0,1)         | Content Cell  | Content Cell  |
+| 測試2         | (0,4)         | Content Cell  | Content Cell  |
+| 測試3         | Content Cell  | Content Cell  | Content Cell  |
+| 測試4         | Content Cell  | Content Cell  | Content Cell  |
+| 測試5         | Content Cell  | Content Cell  | Content Cell  |
 
 ## 編譯與執行指令
 
