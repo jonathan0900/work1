@@ -172,10 +172,24 @@ int main() {
 }
 ```
 ## 效能分析
-Time complexity: 每個元素有兩種選擇。
-Space complexity: 所有子集合的儲存空間。
+子集合數量為 2^n，因為每個元素都有包含/不包含兩種狀態。
+
+時間複雜度：O(2^n)
+
+空間複雜度：O(n)（每次遞迴需要儲存目前的子集合）
+
 ## 測試與驗證
+測試案例 s：{a,b}
+
+{ }
+{ b }
+{ a }
+{ a b }
 ## 編譯與執行指令
+g++ -o subsets.exe subsets.cpp
+
+subsets.exe
+
 
 
 
