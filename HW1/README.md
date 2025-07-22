@@ -74,42 +74,6 @@ int main() {
     return 0;
 }
 ```
-Problem 2
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-
-const int MAX = 10;  
-
-void generate_powerset(char set[], char current[], int index, int curr_size, int n) {
-    if (index == n) {
-        
-        cout << "{ ";
-        for (int i = 0; i < curr_size; ++i) {
-            cout << current[i] << " ";
-        }
-        cout << "}" << endl;
-        return;
-    }
-
-    generate_powerset(set, current, index + 1, curr_size, n);
-
-    current[curr_size] = set[index];
-    generate_powerset(set, current, index + 1, curr_size + 1, n);
-}
-
-int main() {
-    char set[] = {'a', 'b', 'c'};
-    int n = 3;
-
-    char current[MAX]; 
-    generate_powerset(set, current, 0, 0, n);
-
-    return 0;
-}
-```
-
 ## 效能分析
 Time complexity:
 遞迴：非常高，非多項式，屬於超指數級（hyper-exponential）
@@ -150,7 +114,42 @@ ex：
 S = {a,b}
 powerset = {}, {a}, {b}, {a,b}
 ## 解題策略
+
 ## 程式實作
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int MAX = 10;  
+
+void generate_powerset(char set[], char current[], int index, int curr_size, int n) {
+    if (index == n) {
+        
+        cout << "{ ";
+        for (int i = 0; i < curr_size; ++i) {
+            cout << current[i] << " ";
+        }
+        cout << "}" << endl;
+        return;
+    }
+
+    generate_powerset(set, current, index + 1, curr_size, n);
+
+    current[curr_size] = set[index];
+    generate_powerset(set, current, index + 1, curr_size + 1, n);
+}
+
+int main() {
+    char set[] = {'a', 'b', 'c'};
+    int n = 3;
+
+    char current[MAX]; 
+    generate_powerset(set, current, 0, 0, n);
+
+    return 0;
+}
+```
 ## 效能分析
 Time complexity: 每個元素有兩種選擇。
 Space complexity: 所有子集合的儲存空間。
