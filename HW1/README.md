@@ -127,7 +127,18 @@ int main() {
 
 則(S) = {}, {a}, {b}, {a,b}
 ## 解題策略
+遞迴核心概念：
 
+每個元素都有兩種選擇：包含進子集合 或 不包含進子集合
+
+使用遞迴，每層決定是否加入當前元素。
+
+遞迴公式：
+powerset(S) = powerset(S - {last}) ∪ {subset ∪ {last} | subset ∈ powerset(S - {last})}
+
+基本情況：
+
+空集合的 power set 為：[[]]（僅有一個空集合）
 ## 程式實作
 ```cpp
 #include <iostream>
