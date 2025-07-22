@@ -109,10 +109,12 @@ int main() {
 | 測試4         | {a,b,c}        | { }, {c}, {b}, {b,c}, {a}, {a,c}, {a,b}, {a,b,c}             | { }, {c}, {b}, {b,c}, {a}, {a,c}, {a,b}, {a,b,c}             |
 
 ## 編譯與執行指令
+1.遞迴版本
+g++ -o ackermann ackermann.cpp
+./ackermann
 
-
-
-
+2. 非遞迴版本
+g++ -o ackermann.exe ackermann.cpp
 ## Problem 2:
 ## 解題說明
 給定一個集合S，請遞迴計算它的冪集合，也就是所有可能子集合的集合。
