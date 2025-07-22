@@ -24,6 +24,12 @@ int ackermann(int m, int n) {
     else if (n == 0) return ackermann(m - 1, 1);
     else return ackermann(m - 1, ackermann(m, n - 1));
 }
+
+int main() {
+    int m = 0, n = 1;
+    cout << "A(" << m << "," << n << ") = " << ackermann(m, n) << endl;
+    return 0;
+}
 ```
 非遞迴版本:
 ```cpp
