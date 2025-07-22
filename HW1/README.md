@@ -101,10 +101,13 @@ Space complexity:
 非遞迴：O(stack size)，控制在手動堆疊。
 
 ## 測試與驗證
-| 測試案例       | 參數(a,b)     |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| 測試案例       | 參數(a,b)     | 預期輸出       | 實際輸出     |
+| ------------- | ------------- | ------------- | ------------- |
+| 測試1         | Content Cell  | Content Cell  | Content Cell  |
+| 測試2         | Content Cell  | Content Cell  | Content Cell  |
+| 測試3         | Content Cell  |
+| 測試4         | Content Cell  |
+| 測試5         | Content Cell  |
 
 ## 編譯與執行指令
 
