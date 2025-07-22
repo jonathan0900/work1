@@ -101,16 +101,10 @@ Space complexity:
 非遞迴：O(stack size)，控制在手動堆疊。
 
 ## 測試與驗證
-```cpp
-int main() {
-    cout << "A(1,2) = " << ackermann(1,2) << endl;
-    cout << "A(3,2) = " << ackermann_iterative(3,2) << endl;
-    return 0;
-}
-```
-
-A(1, 2) = 4
-A(3, 2) = 29
+| 測試案例       | 參數(a,b)     |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 
 ## 編譯與執行指令
 
