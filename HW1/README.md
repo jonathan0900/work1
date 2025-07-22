@@ -116,11 +116,11 @@ int main() {
 
 例如：
 
-若 S = (a, b, c)
-則 powerset(S) = { (), (a), (b), (c), (a,b), (a,c), (b,c), (a,b,c) }
+  S = (a, b, c)
+(S) = { (), (a), (b), (c), (a,b), (a,c), (b,c), (a,b,c) }
 
-ex：S = {a,b}
-powerset = {}, {a}, {b}, {a,b}
+  S = {a,b}
+(S) = {}, {a}, {b}, {a,b}
 ## 解題策略
 
 ## 程式實作
