@@ -74,11 +74,16 @@ int main() {
 }
 ```
 ## 效能分析
-Time complexity:
+Time complexity:  
+
 遞迴：非常高，非多項式，屬於超指數級（hyper-exponential）
+
 非遞迴：模擬堆疊行為，但仍接近上述時間複雜度。
+
 Space complexity:
+
 遞迴：O(stack depth)，最壞可能為 O(n^(m+1))
+
 非遞迴：O(stack size)，控制在手動堆疊。
 
 ## 測試與驗證
