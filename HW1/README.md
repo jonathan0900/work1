@@ -16,7 +16,7 @@ A(m, n) =
 遇到 m=0 就回傳 n+1，是最底層，遇到 n=0，則往左邊減一層 m，從 n=1 重啟，其他情況會展開成「雙層遞迴」，這是最困難處。
 非遞迴策略
 用 stack（堆疊）模擬系統 call stack，每次記錄 (m,n) 當前狀態，根據條件把下一步推入 stack，特別是 A(m-1, A(m,n-1))，需要等到內部 A(m,n-1) 得出值後，才能處理外層 A(m-1,x)。
-Problem 2:
+**Problem 2:**
 遞迴遍歷所有選擇的可能性，每個元素都有兩種選擇：取或不取。
 
 ## 程式實作
@@ -77,51 +77,66 @@ int main() {
 ```
 Problem 2
 ```cpp
-#include <vector>
-#include <string>
 #include <iostream>
+#include <string>
 using namespace std;
 
-void generate_powerset(vector<string>& set, vector<string>& current, int index, vector<vector<string>>& result) {
-    if (index == set.size()) {
-        result.push_back(current);
+const int MAX = 10;  
+
+void generate_powerset(char set[], char current[], int index, int curr_size, int n) {
+    if (index == n) {
+        
+        cout << "{ ";
+        for (int i = 0; i < curr_size; ++i) {
+            cout << current[i] << " ";
+        }
+        cout << "}" << endl;
         return;
     }
 
-    // 不選擇當前元素
-    generate_powerset(set, current, index + 1, result);
+    generate_powerset(set, current, index + 1, curr_size, n);
 
-    // 選擇當前元素
-    current.push_back(set[index]);
-    generate_powerset(set, current, index + 1, result);
-    current.pop_back();
+    current[curr_size] = set[index];
+    generate_powerset(set, current, index + 1, curr_size + 1, n);
+}
+
+int main() {
+    char set[] = {'a', 'b', 'c'};
+    int n = 3;
+
+    char current[MAX]; 
+    generate_powerset(set, current, 0, 0, n);
+
+    return 0;
 }
 ```
 
 ## 效能分析
 Time complexity:
-遞迴：非常高，非多項式，屬於超指數級（hyper-exponential）。
+遞迴：非常高，非多項式，屬於超指數級（hyper-exponential）
 非遞迴：模擬堆疊行為，但仍接近上述時間複雜度。
 Space complexity:
 遞迴：O(stack depth)，最壞可能為 O(n^(m+1))
 非遞迴：O(stack size)，控制在手動堆疊。
 
 ## 測試與驗證
-| 測試案例       | 參數(a,b)     | 預期輸出       | 實際輸出     |
+**Problem 1:**
+| 測試案例       | 參數(a,b)     | 預期輸出       | 實際輸出      |
 | ------------- | ------------- | ------------- | ------------- |
-| 測試1         | (0,1)         | Content Cell  | Content Cell  |
-| 測試2         | (0,4)         | Content Cell  | Content Cell  |
-| 測試3         | Content Cell  | Content Cell  | Content Cell  |
-| 測試4         | Content Cell  | Content Cell  | Content Cell  |
-| 測試5         | Content Cell  | Content Cell  | Content Cell  |
+| 測試1         | (0,1)         | 2             |2              |
+| 測試2         | (1,2)         | 4             | 4             |
+| 測試3         | (0,4)         | 5             | 5             |
+| 測試4         | (2,3)         | 9             | 9             |
+| 測試5         | (3,4)         | 125           | 125           |
 
 ## 編譯與執行指令
 
 
 
 
-## Problem 2:
+
 ## 解題說明
+**Problem 2:**
 冪集合指的是所有子集合的集合，包含空集合與本身。可以使用「包含 / 不包含」的方式用遞迴解。
 ex：
 S = {a,b}
