@@ -33,7 +33,8 @@ int ackermann(int a, int b) {
 }
 
 int main() {
-    int a = 0, b = 1;
+    int a, b;
+    cin>>a>>b;
     cout << "A(" << a << "," << b << ") = " << ackermann(a, b) << endl;
     return 0;
 }
