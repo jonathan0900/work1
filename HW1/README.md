@@ -4,7 +4,11 @@
 ## 解題說明
 **Problem 1:**
 Ackermann 函數是一個著名的遞迴例子，它不屬於原始遞迴範疇，其特點是增長速度非常快，因此適合用來測試遞迴與堆疊的概念。
-<img width="541" height="106" alt="image" src="https://github.com/user-attachments/assets/2ada9e0d-548f-4be6-a85c-80159a953a19" />
+
+A(m, n) = 
+    if m = 0:           n + 1
+    else if n = 0:      A(m - 1, 1)
+    else:               A(m - 1, A(m, n - 1))
 
 
 ## 解題策略
